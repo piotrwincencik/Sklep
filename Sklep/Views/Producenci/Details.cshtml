@@ -1,38 +1,38 @@
 ﻿@model Producent
 
-@{ ViewData["Tytuł"] = "Opis producenta"; }
+@{
+    ViewData["Title"] = "Szczegóły producenta";
+}
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Opis @Model.Name</h1>
+            <h1>Szczegóły @Model.Name</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
                 <div class="form-group text-center">
-                    <img class="border-info rounded-circle" style="max-width: 150px" id="PicPreview" />
+                    <img id="PicPreview" class="border-info rounded-circle" style="max-width: 150px" />
                 </div>
                 <div class="form-group">
                     <label asp-for="Pic" class="control-label"></label>
-                    <input asp-for="Pic" class="form-control" readonly />
+                    <input asp-for="Pic" class="form-control" />
                     <span asp-validation-for="Pic" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" readonly />
+                    <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Description" class="control-label"></label>
-                    <input asp-for="Description" class="form-control" readonly />
+                    <input asp-for="Description" class="form-control" />
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                    {
-        <a class="btn btn-outline-success float-right" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>}
-                <a class="btn btn-outline-secondary" asp-action="Index">Pokaż</a>
+                    <a class="btn btn-outline-success float-right" asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a>
+                    <a class="btn btn-outline-secondary" asp-action="Index">Pokaż</a>
                 </div>
             </div>
         </div>
@@ -40,8 +40,10 @@
 </div>
 
 @section Scripts{
-    <script>$(document).ready(function () {
-    var output = document.getElementById('PicPreview');
-    output.src = $("#Pic").val();
-        })</script>
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('PicPreview');
+            output.src = $("#Pic").val();
+        })
+    </script>
 }

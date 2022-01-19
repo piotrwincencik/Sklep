@@ -24,15 +24,15 @@ namespace Sklep.Controllers
             return View(allProducenci);
         }
 
-        //GET: producent/details/1
+        //GET: Producenci/details/1
         public async Task<IActionResult> Details(int id)
         {
-            var producenciDetails = await _service.GetByIdAsync(id);
-            if (producenciDetails == null) return View("NotFound");
-            return View(producenciDetails);
+            var producentDetails = await _service.GetByIdAsync(id);
+            if (producentDetails == null) return View("NotFound");
+            return View(producentDetails);
         }
 
-        //GET: producent/create
+        //GET: Producencis/create
         public IActionResult Create()
         {
             return View();
@@ -47,7 +47,7 @@ namespace Sklep.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //GET: producent/edit/1
+        //GET: Producenci/edit/1
         public async Task<IActionResult> Edit(int id)
         {
             var producentDetails = await _service.GetByIdAsync(id);
@@ -68,7 +68,7 @@ namespace Sklep.Controllers
             return View(producent);
         }
 
-        //GET: producers/delete/1
+        //GET: producent/delete/1
         public async Task<IActionResult> Delete(int id)
         {
             var producentDetails = await _service.GetByIdAsync(id);

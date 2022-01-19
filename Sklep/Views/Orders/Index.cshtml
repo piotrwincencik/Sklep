@@ -1,45 +1,47 @@
 ﻿@model List<Order>
 
 @{ 
-    ViewData["Tytuł"] = "Lista zakupów";
+    ViewData["Title"] = "Koszyk";
 }
 
 <div class="row">
     <div class="col-md-8 offset-2">
         <p>
-            <h4>Lista zakupów</h4>
+            <h4>Koszyk</h4>
         </p>
 
         <table class="table">
             <thead>
                 <tr>
-                    <th>Numer zamówienia:</th>
-                    <td>Produkty</td>
-                    <th>Cena</th>
-                    <th>Konto</th>
+                    <th>Numer zamówienia</th>
+                    <td>Przedmioty</td>
+                    <th>Razem</th>
+                    <th>Użytkownik</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var order in Model)
                 {
-    <tr>
-        <td class="align-middle">@order.Id</td>
-        <td class="align-middle">
-            <ul style="list-style-type:none">
-                @foreach (var item in order.OrderItems)
-                {
-<li>
-    <div class="alert alert-info" role="alert">
-        <span class="badge bg-success">@item.Amount</span> [@item.Price.ToString("c")] - @item.Produkt.Name
-    </div>
-</li>}
-            </ul>
-        </td>
-        <td class="align-middle">
-            @order.OrderItems.Select(m => m.Produkt.Price * m.Amount).Sum().ToString("c")
-        </td>
-        <td class="align-middle"> - </td>
-    </tr>}
+                <tr>
+                    <td class="align-middle">@order.Id</td>
+                    <td class="align-middle">
+                        <ul style="list-style-type:none">
+                            @foreach (var item in order.OrderItems)
+                            {
+                                <li>
+                                    <div class="alert alert-info" role="alert">
+                                        <span class="badge bg-success">@item.Amount</span> [@item.Price.ToString("c")] - @item.Produkt.Name
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </td>
+                    <td class="align-middle">
+                        @order.OrderItems.Select(m => m.Produkt.Price * m.Amount).Sum().ToString("c")
+                    </td>
+                    <td class="align-middle"> - </td>
+                </tr>
+                }
             </tbody>
         </table>
 

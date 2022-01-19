@@ -1,13 +1,13 @@
 ﻿@model Producent
 
 @{
-    ViewData["Tytuł"] = "Update Producent";
+    ViewData["Title"] = "Zmień dane producenta";
 }
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Zmień dane Producenta</h1>
+            <h1>Zmień dane producenta</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
@@ -15,7 +15,7 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="form-group text-center">
-                        <img id="PicPreview"  class="border-info rounded-circle" style="max-width: 150px" />
+                        <img id="PicPreview" class="border-info rounded-circle" style="max-width: 150px" />
                     </div>
                     <div class="form-group">
                         <label asp-for="Pic" class="control-label"></label>
@@ -52,7 +52,7 @@
         })
 
         $("#Pic").on("change", function () {
-            var output = document.getElementById('Pic');
+            var output = document.getElementById('PicPreview');
             output.src = $(this).val();
         })
     </script>

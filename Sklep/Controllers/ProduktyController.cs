@@ -1,7 +1,5 @@
-﻿using Sklep.Date;
-using Sklep.Date.Services;
+﻿using Sklep.Date.Services;
 using Sklep.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -33,11 +31,8 @@ namespace Sklep.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                //var filteredResult = allProdukty.Where(n => n.Name.ToLower().Contains(searchString.ToLower()) || n.Description.ToLower().Contains(searchString.ToLower())).ToList();
-
-                var filteredResultNew = allProdukty.Where(n => string.Equals(n.Name, searchString, StringComparison.CurrentCultureIgnoreCase) || string.Equals(n.Description, searchString, StringComparison.CurrentCultureIgnoreCase)).ToList();
-
-                return View("Index", filteredResultNew);
+                var filteredResult = allProdukty.Where(n => n.Name.Contains(searchString) || n.Description.Contains(searchString)).ToList();
+                return View("Index", filteredResult);
             }
 
             return View("Index", allProdukty);
@@ -68,7 +63,7 @@ namespace Sklep.Controllers
             {
                 var produktDropdownsData = await _service.GetNewProduktDropdownsValues();
 
-                ViewBag.Kategoria = new SelectList(produktDropdownsData.Kategorie, "Id", "Name");
+                ViewBag.Kategorie = new SelectList(produktDropdownsData.Kategorie, "Id", "Name");
                 ViewBag.Producenci = new SelectList(produktDropdownsData.Producenci, "Id", "Name");
 
                 return View(produkt);
@@ -112,7 +107,7 @@ namespace Sklep.Controllers
             {
                 var produktDropdownsData = await _service.GetNewProduktDropdownsValues();
 
-                ViewBag.Kategoria = new SelectList(produktDropdownsData.Kategorie, "Id", "Name");
+                ViewBag.Kategorie = new SelectList(produktDropdownsData.Kategorie, "Id", "Name");
                 ViewBag.Producenci = new SelectList(produktDropdownsData.Producenci, "Id", "Name");
 
                 return View(produkt);

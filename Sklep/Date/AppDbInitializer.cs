@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace Sklep.Date
 {
@@ -18,52 +19,68 @@ namespace Sklep.Date
 
                 context.Database.EnsureCreated();
 
-                //Cinema
+                //Kategoria
                 if (!context.Kategorie.Any())
                 {
                     context.Kategorie.AddRange(new List<Kategoria>()
                     {
                         new Kategoria()
                         {
-                            Name = "Kategoria 1",
-                            Description = "This is the description"
+                            Name = "Naklejka",
+                            Description = "Naklejka 5x5cm"
                         },
                         new Kategoria()
                         {
-                            Name = "Kategoria  2",
-                            Description = "This is the description"
+                            Name = "Koszulka",
+                            Description = "Koszulka standardowy krój"
                         },
-                        new Kategoria()
-                        {
-                            Name = "Kategoria  3",
-                            Description = "This is the description"
-                        }
                     });
                     context.SaveChanges();
                 }
-
-                //Producers
+                //Producenct
                 if (!context.Producenci.Any())
                 {
                     context.Producenci.AddRange(new List<Producent>()
                     {
                         new Producent()
                         {
-                            Pic = "https://files.fm/u/cg6wewbns#/view/unnamed2.png",
-                            Name = "Producent 1",
-                            Description = "This is the description"
+                            Name = "Producent",
+                            Description = "Siema",
+                            Pic = "https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg"
 
                         },
                         new Producent()
                         {
-                            Pic = "https://files.fm/u/cg6wewbns#/view/unnamed2.png",
-                            Name = "Producent 2",
-                            Description = "This is the description"
-                        }
+                            Name = "Producent",
+                            Description = "Siema",
+                            Pic = "https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg"
+
+                        },
+                        new Producent()
+                        {
+                            Name = "Producent",
+                            Description = "Siema",
+                            Pic = "https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg"
+
+                        },
+                        new Producent()
+                        {
+                            Name = "Producent",
+                            Description = "Siema",
+                            Pic = "https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg"
+
+                        },
+                        new Producent()
+                        {
+                            Name = "Producent",
+                            Description = "Siema",
+                            Pic = "https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg"
+
+                        },
                     });
                     context.SaveChanges();
                 }
-                //Movies
+                //Produkty
                 if (!context.Produkty.Any())
                 {
                     context.Produkty.AddRange(new List<Produkt>()
@@ -71,39 +88,57 @@ namespace Sklep.Date
                         new Produkt()
                         {
                             Name = "Life",
-                            Description = "This is the description",
-                            Price = 39.50,
-                            ImageURL = "1.jpg",
-                            KategoriaId = 1,
-                            ProducentId = 1
-                        },
-                        new Produkt()
-                        {
-                            Name = "Simple",
-                            Description = "This is the description",
-                            Price = 29.50,
-                            ImageURL = "1.jpg",
-                            KategoriaId = 2,
-                            ProducentId = 2
-                        },
-                        new Produkt()
-                        {
-                            Name = "Is",
-                            Description = "This is the description",
-                            Price = 420.00,
-                            ImageURL = "1.jpg",
+                            Description = "This is the Life",
+                            Price = 10,
+                            ImageURL = "https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg",
                             KategoriaId = 3,
-                            ProducentId = 1
+                            ProducentId = 3,
                         },
                         new Produkt()
                         {
-                            Name = "Veri",
-                            Description = "This is the description",
-                            Price = 39.50,
-                            ImageURL = "1.jpg",
-                            KategoriaId = 1,
-                            ProducentId = 2
-                        }
+                            Name = "Life",
+                            Description = "This is the Life",
+                            Price = 10,
+                            ImageURL = "https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg",
+                            KategoriaId = 3,
+                            ProducentId = 3,
+                        },
+                        new Produkt()
+                        {
+                            Name = "Life",
+                            Description = "This is the Life",
+                            Price = 10,
+                            ImageURL = "https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg",
+                            KategoriaId = 3,
+                            ProducentId = 3,
+                        },
+                        new Produkt()
+                        {
+                            Name = "Life",
+                            Description = "This is the Life",
+                            Price = 10,
+                            ImageURL = "https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg",
+                            KategoriaId = 3,
+                            ProducentId = 3,
+                        },
+                        new Produkt()
+                        {
+                            Name = "Life",
+                            Description = "This is the Life",
+                            Price = 10,
+                            ImageURL = "https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg",
+                            KategoriaId = 3,
+                            ProducentId = 3,
+                        },
+                        new Produkt()
+                        {
+                            Name = "Life",
+                            Description = "This is the Life",
+                            Price = 10,
+                            ImageURL = "https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg",
+                            KategoriaId = 3,
+                            ProducentId = 3,
+                        },
                     });
                     context.SaveChanges();
                 }

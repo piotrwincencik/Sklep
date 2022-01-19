@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Sklep.Date.Services
 {
-    public class ProduktyService:EntityBaseRepository<Produkt>, IProduktyService
+    public class ProduktyService : EntityBaseRepository<Produkt>, IProduktyService
     {
         private readonly AppDbContext _context;
         public ProduktyService(AppDbContext context) : base(context)
@@ -64,9 +64,11 @@ namespace Sklep.Date.Services
                 dbProdukt.Description = data.Description;
                 dbProdukt.Price = data.Price;
                 dbProdukt.ImageURL = data.ImageURL;
+                dbProdukt.KategoriaId = data.KategoriaId;
                 dbProdukt.ProducentId = data.ProducentId;
                 await _context.SaveChangesAsync();
             }
+            await _context.SaveChangesAsync();
         }
     }
 }

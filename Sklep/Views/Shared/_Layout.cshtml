@@ -22,17 +22,17 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Produkty" asp-action="Index"><i class="bi bi-heart-fill"></i> Produkty</a>
                         </li>
+                       
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-gear"></i> Wybierz
+                                </a>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-gear"></i>Menu
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-controller="Kategorie" asp-action="Index"><i class="bi bi-heart-fill"></i> Kategorie</a>
-                                <a class="dropdown-item" asp-controller="Producenci" asp-action="Index"><i class="bi bi-heart-fill"></i> Producenci</a>
-                            </div>
-                        </li>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-controller="Kategorie" asp-action="Index"><i class="bi bi-heart-fill"></i> Kategorie</a>
+                                    <a class="dropdown-item" asp-controller="Producenci" asp-action="Index"><i class="bi bi-heart-fill"></i> Producenci</a>
+                                </div>
+                            </li>
                     </ul>
 
                     <form class="form-inline my-2 my-lg-0" asp-controller="Produkty" asp-action="Filter" style="padding-right: 25px;">
@@ -41,8 +41,23 @@
                     </form>
 
                     <ul class="navbar-nav">
-                        @await Component.InvokeAsync("ShoppingCartSummary")
+                        @await Component.InvokeAsync("ShoppingCartSummary") 
                     </ul>
+
+                    @*User profile section*@
+                <div class="dropdown">
+                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown"
+                            aria-expanded="false">
+                        <i class="bi bi-person-badge"></i> Witaj!
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                        <li>
+                            <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
+                                <i class="bi bi-list"></i> Koszyk
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
                 </div>
             </div>

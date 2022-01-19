@@ -36,7 +36,7 @@ namespace Sklep.Date.Cart
         {
             var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Produkt.Id == produkt.Id && n.ShoppingCartId == ShoppingCartId);
 
-            if(shoppingCartItem == null)
+            if (shoppingCartItem == null)
             {
                 shoppingCartItem = new ShoppingCartItem()
                 {
@@ -46,7 +46,8 @@ namespace Sklep.Date.Cart
                 };
 
                 _context.ShoppingCartItems.Add(shoppingCartItem);
-            } else
+            }
+            else
             {
                 shoppingCartItem.Amount++;
             }
@@ -59,10 +60,11 @@ namespace Sklep.Date.Cart
 
             if (shoppingCartItem != null)
             {
-                if(shoppingCartItem.Amount > 1)
+                if (shoppingCartItem.Amount > 1)
                 {
                     shoppingCartItem.Amount--;
-                } else
+                }
+                else
                 {
                     _context.ShoppingCartItems.Remove(shoppingCartItem);
                 }
@@ -75,7 +77,7 @@ namespace Sklep.Date.Cart
             return ShoppingCartItems ?? (ShoppingCartItems = _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Include(n => n.Produkt).ToList());
         }
 
-        public double GetShoppingCartTotal() =>  _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Select(n => n.Produkt.Price * n.Amount).Sum();
+        public double GetShoppingCartTotal() => _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Select(n => n.Produkt.Price * n.Amount).Sum();
 
         public async Task ClearShoppingCartAsync()
         {
