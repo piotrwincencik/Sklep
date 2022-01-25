@@ -17,6 +17,12 @@ namespace Sklep.Models
         [Display(Name = "Name")]
         [Required(ErrorMessage = "Musisz nadać nazwę.")]
         public string Name { get; set; }
+
+        public void Add(int id, Produkt produkt)
+        {
+            throw new NotImplementedException();
+        }
+
         [Display(Name = "Description")]
         [Required(ErrorMessage = "Musisz dodać opis.")]
         public string Description { get; set; }
